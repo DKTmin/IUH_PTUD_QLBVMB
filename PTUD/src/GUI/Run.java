@@ -28,14 +28,14 @@ public class Run {
     public static void main(String[] args) {
 
 //      
-//        GUI_HOME_QuanLi a = new GUI_HOME_QuanLi();
-//        a.setExtendedState(JFrame.MAXIMIZED_BOTH);
-//        a.setVisible(true);
+        GUI_HOME_QuanLi a = new GUI_HOME_QuanLi();
+        a.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        a.setVisible(true);
 //        a.setUndecorated(true);   
         
-        GUI_HOME_NhanVien b = new GUI_HOME_NhanVien(); 
-        b.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        b.setVisible(true);
+//        GUI_HOME_NhanVien b = new GUI_HOME_NhanVien(); 
+//        b.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//        b.setVisible(true);
         	
         
         
