@@ -13,29 +13,30 @@ import javax.swing.JOptionPane;
  *
  * @author ADMIN
  */
-public class GUI_HOME_NhanVien extends javax.swing.JFrame {
+public class GUI_HOME_QuanLi extends javax.swing.JFrame {
 
     /**
      * Creates new form GUI_HOMe
      */
-    private GUI_QuanLiVe guiQuanLiVe; 
+    private GUI_QuanLiVe guiNhapVe; 
     private GUI_DatVe guiDatVe;
     private GUI_KhachHang guiKhachHang; 
     private GUI_HangVe guiHangVe; 
     private GUI_HangBay guiHangBay; 
-    private GUI_HoaDon guiHoaDon;
+    private GUI_NhanVien guiNhanVien;
+    private GUI_ThongKe guiThongKe;
     
-    
-    public GUI_HOME_NhanVien() {
-        guiQuanLiVe = new GUI_QuanLiVe();
+    public GUI_HOME_QuanLi() {
+        guiNhapVe = new GUI_QuanLiVe();
         guiDatVe = new GUI_DatVe(); 
         guiKhachHang = new GUI_KhachHang(); 
         guiHangVe = new GUI_HangVe(); 
         guiHangBay = new GUI_HangBay(); 
-        guiHoaDon = new GUI_HoaDon();
+        guiNhanVien = new GUI_NhanVien();
+        guiThongKe = new GUI_ThongKe();
         
         initComponents();
-        this.panelThayDoi.add(guiDatVe);
+        this.panelThayDoi.add(guiNhanVien);
     }
 
     /**
@@ -57,12 +58,9 @@ public class GUI_HOME_NhanVien extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        btnQuanLiVe = new javax.swing.JButton();
-        btnDatVe = new javax.swing.JButton();
-        btnHoaDon = new javax.swing.JButton();
-        btnHangBay = new javax.swing.JButton();
+        btnNhanVien = new javax.swing.JButton();
+        btnThongKe = new javax.swing.JButton();
         btnDangXuat = new javax.swing.JButton();
-        btnKhachHang = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -117,7 +115,7 @@ public class GUI_HOME_NhanVien extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Nhân Viên");
+        jLabel7.setText("Quản lí");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -137,7 +135,7 @@ public class GUI_HOME_NhanVien extends javax.swing.JFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
+                .addContainerGap(66, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel6))
@@ -145,53 +143,31 @@ public class GUI_HOME_NhanVien extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel7))
-                .addGap(67, 67, 67))
+                .addGap(61, 61, 61))
         );
 
         jPanel1.setBackground(new java.awt.Color(10, 90, 110));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        btnQuanLiVe.setBackground(new java.awt.Color(0, 147, 166));
-        btnQuanLiVe.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnQuanLiVe.setForeground(new java.awt.Color(255, 255, 255));
-        btnQuanLiVe.setText("Quản lí vé");
-        btnQuanLiVe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        btnQuanLiVe.addActionListener(new java.awt.event.ActionListener() {
+        btnNhanVien.setBackground(new java.awt.Color(0, 147, 166));
+        btnNhanVien.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnNhanVien.setForeground(new java.awt.Color(255, 255, 255));
+        btnNhanVien.setText("Nhân viên");
+        btnNhanVien.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        btnNhanVien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQuanLiVeActionPerformed(evt);
+                btnNhanVienActionPerformed(evt);
             }
         });
 
-        btnDatVe.setBackground(new java.awt.Color(0, 147, 166));
-        btnDatVe.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnDatVe.setForeground(new java.awt.Color(255, 255, 255));
-        btnDatVe.setText("Đặt Vé");
-        btnDatVe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        btnDatVe.addActionListener(new java.awt.event.ActionListener() {
+        btnThongKe.setBackground(new java.awt.Color(0, 147, 166));
+        btnThongKe.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnThongKe.setForeground(new java.awt.Color(255, 255, 255));
+        btnThongKe.setText("Thống kê doanh thu");
+        btnThongKe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        btnThongKe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDatVeActionPerformed(evt);
-            }
-        });
-
-        btnHoaDon.setBackground(new java.awt.Color(0, 147, 166));
-        btnHoaDon.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnHoaDon.setForeground(new java.awt.Color(255, 255, 255));
-        btnHoaDon.setText("Hóa đơn");
-        btnHoaDon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        btnHoaDon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHoaDonActionPerformed(evt);
-            }
-        });
-
-        btnHangBay.setBackground(new java.awt.Color(0, 147, 166));
-        btnHangBay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnHangBay.setForeground(new java.awt.Color(255, 255, 255));
-        btnHangBay.setText("Hãng Bay");
-        btnHangBay.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        btnHangBay.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHangBayActionPerformed(evt);
+                btnThongKeActionPerformed(evt);
             }
         });
 
@@ -206,48 +182,27 @@ public class GUI_HOME_NhanVien extends javax.swing.JFrame {
             }
         });
 
-        btnKhachHang.setBackground(new java.awt.Color(0, 147, 166));
-        btnKhachHang.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnKhachHang.setForeground(new java.awt.Color(255, 255, 255));
-        btnKhachHang.setText("Khách Hàng");
-        btnKhachHang.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        btnKhachHang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnKhachHangActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnDatVe, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnHoaDon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnQuanLiVe, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnDangXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnHangBay, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnDangXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(btnDatVe, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(btnQuanLiVe, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(btnKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(btnHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(btnHangBay, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(50, 50, 50)
+                .addComponent(btnNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(btnThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
                 .addComponent(btnDangXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -294,25 +249,15 @@ public class GUI_HOME_NhanVien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnQuanLiVeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLiVeActionPerformed
+    private void btnNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNhanVienActionPerformed
         // TODO add your handling code here:
-         thayDoiPanelChinh(guiQuanLiVe, btnQuanLiVe);
-    }//GEN-LAST:event_btnQuanLiVeActionPerformed
+         thayDoiPanelChinh(guiNhanVien, btnNhanVien);
+    }//GEN-LAST:event_btnNhanVienActionPerformed
 
-    private void btnDatVeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatVeActionPerformed
+    private void btnThongKeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThongKeActionPerformed
         // TODO add your handling code here:
-         thayDoiPanelChinh(guiDatVe, btnDatVe);
-    }//GEN-LAST:event_btnDatVeActionPerformed
-
-    private void btnHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHoaDonActionPerformed
-        // TODO add your handling code here:
-         thayDoiPanelChinh(guiHoaDon, btnHoaDon);
-    }//GEN-LAST:event_btnHoaDonActionPerformed
-
-    private void btnHangBayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHangBayActionPerformed
-        // TODO add your handling code here:
-         thayDoiPanelChinh(guiHangBay, btnHangBay);
-    }//GEN-LAST:event_btnHangBayActionPerformed
+         thayDoiPanelChinh(guiThongKe, btnThongKe);
+    }//GEN-LAST:event_btnThongKeActionPerformed
 
     private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
         // TODO add your handling code here:
@@ -324,17 +269,14 @@ public class GUI_HOME_NhanVien extends javax.swing.JFrame {
                         JOptionPane.YES_NO_OPTION
                 );
                 if (response == JOptionPane.YES_OPTION) {
+                    // Đóng ứng dụng hoặc chuyển sang màn hình đăng nhập
                     JOptionPane.showMessageDialog(null, "Đăng xuất thành công!");
-                    dispose();
+                    dispose(); // Đóng cửa sổ hiện tại
+                    // Optionally: Open login screen
                     new GUI_DangNhap().setVisible(true);
                 }
          
     }//GEN-LAST:event_btnDangXuatActionPerformed
-
-    private void btnKhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKhachHangActionPerformed
-        // TODO add your handling code here:
-        thayDoiPanelChinh(guiKhachHang, btnKhachHang);
-    }//GEN-LAST:event_btnKhachHangActionPerformed
 
     /**
      * @param args the command line arguments
@@ -353,14 +295,30 @@ public class GUI_HOME_NhanVien extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUI_HOME_NhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_HOME_QuanLi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUI_HOME_NhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_HOME_QuanLi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUI_HOME_NhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_HOME_QuanLi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUI_HOME_NhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_HOME_QuanLi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -381,7 +339,7 @@ public class GUI_HOME_NhanVien extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_HOME_NhanVien().setVisible(true);
+                new GUI_HOME_QuanLi().setVisible(true);
                
             }
         });
@@ -400,11 +358,8 @@ public class GUI_HOME_NhanVien extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDangXuat;
-    private javax.swing.JButton btnDatVe;
-    private javax.swing.JButton btnHangBay;
-    private javax.swing.JButton btnHoaDon;
-    private javax.swing.JButton btnKhachHang;
-    private javax.swing.JButton btnQuanLiVe;
+    private javax.swing.JButton btnNhanVien;
+    private javax.swing.JButton btnThongKe;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

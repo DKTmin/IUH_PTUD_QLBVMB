@@ -28,7 +28,7 @@ public class Run {
     public static void main(String[] args) {
 
 //      
-//        GUI_HOME_QuanLy a = new GUI_HOME_QuanLy();
+//        GUI_HOME_QuanLi a = new GUI_HOME_QuanLi();
 //        a.setExtendedState(JFrame.MAXIMIZED_BOTH);
 //        a.setVisible(true);
 //        a.setUndecorated(true);   
