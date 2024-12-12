@@ -9,6 +9,8 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import ENTITY.NhanVien;
+
 /**
  *
  * @author ADMIN
@@ -26,15 +28,17 @@ public class GUI_HOME_NhanVien extends javax.swing.JFrame {
     private GUI_HoaDon guiHoaDon;
     
     
-    public GUI_HOME_NhanVien() {
+    public GUI_HOME_NhanVien(NhanVien nv) {
         guiQuanLiVe = new GUI_QuanLiVe();
-        guiDatVe = new GUI_DatVe(); 
+        guiDatVe = new GUI_DatVe(this, nv); 
         guiKhachHang = new GUI_KhachHang(); 
         guiHangVe = new GUI_HangVe(); 
         guiHangBay = new GUI_HangBay(); 
         guiHoaDon = new GUI_HoaDon();
         
         initComponents();
+        jLabel6.setText(nv.getTenNhanVien());
+        jLabel7.setText(nv.getMaTaiKhoan().getMaLoai().getTenLoai());
         this.panelThayDoi.add(guiDatVe);
     }
 
@@ -381,7 +385,7 @@ public class GUI_HOME_NhanVien extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_HOME_NhanVien().setVisible(true);
+//                new GUI_HOME_NhanVien().setVisible(true);
                
             }
         });

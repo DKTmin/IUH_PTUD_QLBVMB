@@ -1,18 +1,19 @@
 package ENTITY;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class ChiTietHoaDon {
 	private HoaDon MaHoaDon; 
 	private VeMayBay MaVe; 
 	private NhanVien MaNhanVien; 
 	private double TongTien; 
-	private LocalDate NgayLapHoaDon;
+	private LocalDateTime NgayLapHoaDon;
 	
 	
 	
 	public ChiTietHoaDon(HoaDon maHoaDon, VeMayBay maVe, NhanVien maNhanVien, double tongTien,
-			LocalDate ngayLapHoaDon) {
+			LocalDateTime ngayLapHoaDon) {
 		super();
 		MaHoaDon = maHoaDon;
 		MaVe = maVe;
@@ -71,13 +72,13 @@ public class ChiTietHoaDon {
 
 
 
-	public LocalDate getNgayLapHoaDon() {
+	public LocalDateTime getNgayLapHoaDon() {
 		return NgayLapHoaDon;
 	}
 
 
 
-	public void setNgayLapHoaDon(LocalDate ngayLapHoaDon) {
+	public void setNgayLapHoaDon(LocalDateTime ngayLapHoaDon) {
 		NgayLapHoaDon = ngayLapHoaDon;
 	}
 

@@ -1,6 +1,7 @@
 package DAO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -34,6 +35,28 @@ public class DAO_Ghe {
 		}
 		return dsGhe;
 	}
+	
+	// Trả về một đối tượng theo mã
+		public Ghe getOneObjGhe(String maObj) {
+			Ghe ghe = null;
+			try {
+				KetNoiDB.getInstance();
+				Connection con = KetNoiDB.getConnection();
+				String sql = "Select * from Ghe where MaGhe = ?";
+				PreparedStatement preparedStatement = con.prepareStatement(sql);
+				preparedStatement.setString(1, maObj);
+				ResultSet rs = preparedStatement.executeQuery();
+				if (rs.next()) {
+					String maLichBay = rs.getString("MaGhe");
+					String noiDi = rs.getString("TenGhe");
+					
+					ghe = new Ghe(maLichBay, noiDi);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return ghe;
+		}
 
 	public String in() {
 		String in = null;

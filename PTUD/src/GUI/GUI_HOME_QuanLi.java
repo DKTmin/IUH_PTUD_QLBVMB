@@ -9,6 +9,8 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import ENTITY.NhanVien;
+
 /**
  *
  * @author ADMIN
@@ -26,9 +28,9 @@ public class GUI_HOME_QuanLi extends javax.swing.JFrame {
     private GUI_NhanVien guiNhanVien;
     private GUI_ThongKe guiThongKe;
     
-    public GUI_HOME_QuanLi() {
+    public GUI_HOME_QuanLi(NhanVien nv) {
         guiNhapVe = new GUI_QuanLiVe();
-        guiDatVe = new GUI_DatVe(); 
+        guiDatVe = new GUI_DatVe(this, nv); 
         guiKhachHang = new GUI_KhachHang(); 
         guiHangVe = new GUI_HangVe(); 
         guiHangBay = new GUI_HangBay(); 
@@ -339,7 +341,7 @@ public class GUI_HOME_QuanLi extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_HOME_QuanLi().setVisible(true);
+//                new GUI_HOME_QuanLi().setVisible(true);
                
             }
         });

@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import Connect.KetNoiDB;
@@ -15,6 +14,7 @@ import ENTITY.LichBay;
 import ENTITY.VeMayBay;
 
 public class DAO_VeMayBay {
+	// list 
 	private ArrayList<VeMayBay> dsVeMayBay;
 
 	// Dao
