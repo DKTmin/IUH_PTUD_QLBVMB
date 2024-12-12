@@ -27,8 +27,11 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 
 import DAO.DAO_LichBay;
+import DAO.DAO_LoaiVe;
 import DAO.DAO_VeMayBay;
 import ENTITY.LichBay;
+import ENTITY.LoaiVe;
+import ENTITY.NhanVien;
 import ENTITY.VeMayBay;
 
 /**
@@ -44,20 +47,27 @@ public class GUI_DatVe extends javax.swing.JPanel {
 	private String tieude[] = { "Mã Vé", "Hãng Bay", "Điểm Đi", "Điểm Đến", "Ngày Giờ Đi", "Ngày Giờ Đến", "Thời Gian",
 			"Giá" };
 	private DefaultTableModel modeltable = new DefaultTableModel(tieude, 0);
-	
+	private NhanVien nv; 
 
 	// DAO
 	private DAO_LichBay dao_LichBay = new DAO_LichBay();
 	private DAO_VeMayBay dao_VeMayBay = new DAO_VeMayBay();
-
+	private DAO_LoaiVe dao_LoaiVe = new DAO_LoaiVe();  
 	// LIST
 	private ArrayList<LichBay> listLichBay;
 	private ArrayList<VeMayBay> listVeBay;
+	
+	//
+	private GUI_ChonVeKhachHang gui_ChonVeKhachHang; 
+	private GUI_HOME_NhanVien gui_NhanVien; 
+	
 
-	public GUI_DatVe() {
+	public GUI_DatVe(JFrame guiNhanVien, NhanVien nv) {
+		this.nv = nv; 
 		listLichBay = dao_LichBay.getalltbLichBay();
 		listVeBay = dao_VeMayBay.getalltbVeMayBay();
-
+		gui_NhanVien = (GUI_HOME_NhanVien) guiNhanVien; 
+		
 		initComponents();
 		
 		duaDuLieuVaoModule();
@@ -404,18 +414,33 @@ public class GUI_DatVe extends javax.swing.JPanel {
 	}// GEN-LAST:event_btnSapXepTheoGiaActionPerformed
 
 	private void btnDatVeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnDatVeActionPerformed
-	    int selectedRow = jTable1.getSelectedRow(); //kiểm tra có chọn dòng chưa
-	    if (selectedRow == -1) { 
+		int selectedRow = jTable1.getSelectedRow(); // kiểm tra có chọn dòng chưa
+	    if (selectedRow == -1) {
 	        JOptionPane.showMessageDialog(this, "Vui lòng chọn vé trong bảng!", "Thông báo", JOptionPane.WARNING_MESSAGE);
 	        return; // Kết thúc sự kiện
 	    }
 
+	    // Lấy mã vé từ dòng được chọn
+	    String maVe = jTable1.getValueAt(selectedRow, 0).toString(); // Giả sử cột 0 chứa mã vé
+
 	    // Kiểm tra người dùng đã chọn loại vé (một chiều hoặc khứ hồi) chưa
 	    if (rdbtnKhuHoi.isSelected() || rdbtnMotChieu.isSelected()) {
-	        gui_ChonVe = new GUI_ChonVe();
-	        gui_ChonVe.setVisible(true);
-	        gui_ChonVe.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-	        gui_ChonVe.setLocationRelativeTo(null);
+	        // Truyền mã vé vào GUI_ChonVe
+//	        gui_ChonVe = new GUI_ChonVe(maVe);
+//	        gui_ChonVe.setVisible(true);
+//	        gui_ChonVe.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+//	        gui_ChonVe.setLocationRelativeTo(null);
+	    	LoaiVe lv = null; 
+	    	if(rdbtnKhuHoi.isSelected()) { 
+	    		lv = dao_LoaiVe.getOneObjLoaiVe("LV001"); 
+	    	}
+	    	if(rdbtnMotChieu.isSelected()) { 
+	    		lv = dao_LoaiVe.getOneObjLoaiVe("LV002"); 
+	    	}
+	    	
+	    	gui_ChonVeKhachHang = new GUI_ChonVeKhachHang(maVe, nv, lv); 
+	    	gui_NhanVien.thayDoiPanelChinh(gui_ChonVeKhachHang, btnDatVe);
+	        
 	    } else {
 	        JOptionPane.showMessageDialog(this, "Bạn muốn đi một chiều hay khứ hồi? Hãy chọn 1 trong 2", "Thông báo",
 	                JOptionPane.INFORMATION_MESSAGE);
@@ -551,6 +576,9 @@ public class GUI_DatVe extends javax.swing.JPanel {
 	public boolean kiemTraGiuaHaiNgayGiongNhau(LocalDateTime ThoiGianA, LocalDateTime ThoiGianB) {
 		return ThoiGianA.toLocalDate().equals(ThoiGianB.toLocalDate());
 	}
+	
+	
+	
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDatLai;
