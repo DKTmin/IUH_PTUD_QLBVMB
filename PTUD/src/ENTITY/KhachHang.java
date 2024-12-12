@@ -11,82 +11,78 @@ import java.util.Objects;
  * @author ADMIN
  */
 public class KhachHang {
-	private String MaKhachHang;
-	private String TenKhachHang;
-	private String SoDienThoai;
-	private String Email;
-	private String GioiTinh;
-	private String ChungMinhNhanDan;
-	
-	public KhachHang(String maKhachHang) {
-		super();
-		MaKhachHang = maKhachHang;
+	public String getMaKH() {
+		return maKH;
 	}
 	
-	public KhachHang(String maKhachHang, String tenKhachHang, String soDienThoai, String email, String gioiTinh,
-			String chungMinhNhanDan) {
-		super();
-		MaKhachHang = maKhachHang;
-		TenKhachHang = tenKhachHang;
-		SoDienThoai = soDienThoai;
-		Email = email;
-		GioiTinh = gioiTinh;
-		ChungMinhNhanDan = chungMinhNhanDan;
+	public void setMaKH(String maKH) {
+		
+		this.maKH = maKH;
 	}
-	
-	
-	public String getMaKhachHang() {
-		return MaKhachHang;
+	public String getHoTen() {
+		return hoTen;
 	}
-
-	public void setMaKhachHang(String maKhachHang) {
-		MaKhachHang = maKhachHang;
+	public void setHoTen(String hoTen) {
+		if (hoTen == null || hoTen.trim().isEmpty() || hoTen.length() > 100) {
+		    throw new IllegalArgumentException("Tên khách hàng không hợp lệ!");
+		}
+		this.hoTen = hoTen;
 	}
-
-	public String getTenKhachHang() {
-		return TenKhachHang;
-	}
-
-	public void setTenKhachHang(String tenKhachHang) {
-		TenKhachHang = tenKhachHang;
-	}
-
 	public String getSoDienThoai() {
 		return SoDienThoai;
 	}
-
 	public void setSoDienThoai(String soDienThoai) {
+		if (soDienThoai == null || soDienThoai.trim().isEmpty()){
+		    throw new IllegalArgumentException("Só Điện Thoại không hợp lệ!");
+		}
 		SoDienThoai = soDienThoai;
 	}
-
 	public String getEmail() {
-		return Email;
+		return email;
 	}
-
 	public void setEmail(String email) {
-		Email = email;
+		if (email == null || email.trim().isEmpty()){
+		    throw new IllegalArgumentException("email không hợp lệ!");
+		}
+		this.email = email;
 	}
-
 	public String getGioiTinh() {
-		return GioiTinh;
+		return gioiTinh;
 	}
-
 	public void setGioiTinh(String gioiTinh) {
-		GioiTinh = gioiTinh;
+		this.gioiTinh = gioiTinh;
 	}
-
-	public String getChungMinhNhanDan() {
-		return ChungMinhNhanDan;
+	public String getCccd() {
+		return cccd;
 	}
-
-	public void setChungMinhNhanDan(String chungMinhNhanDan) {
-		ChungMinhNhanDan = chungMinhNhanDan;
+	public void setCccd(String cccd) {
+		if (cccd == null || cccd.trim().isEmpty()){
+		    throw new IllegalArgumentException("Só Căn Cước không hợp lệ!");
+		}
+		this.cccd = cccd;
 	}
+	public KhachHang(String maKH, String hoTen, String soDienThoai, String email, String gioiTinh, String cccd) {
+		super();
+		this.maKH = maKH;
+		this.hoTen = hoTen;
+		this.SoDienThoai = soDienThoai;
+		this.email = email;
+		this.gioiTinh = gioiTinh;
+		this.cccd = cccd;
+		
+	}
+	private String maKH;
+	private String hoTen;
+	private String SoDienThoai;
+	private String email;
+	private String gioiTinh;
+	private String cccd;
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(MaKhachHang);
+		return Objects.hash(SoDienThoai, cccd, email, gioiTinh, hoTen, maKH);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -96,17 +92,15 @@ public class KhachHang {
 		if (getClass() != obj.getClass())
 			return false;
 		KhachHang other = (KhachHang) obj;
-		return Objects.equals(MaKhachHang, other.MaKhachHang);
+		return Objects.equals(SoDienThoai, other.SoDienThoai) && Objects.equals(cccd, other.cccd)
+				&& Objects.equals(email, other.email) && Objects.equals(gioiTinh, other.gioiTinh)
+				&& Objects.equals(hoTen, other.hoTen) && Objects.equals(maKH, other.maKH);
 	}
-	
+
 	@Override
 	public String toString() {
-		return "KhachHang [MaKhachHang=" + MaKhachHang + ", TenKhachHang=" + TenKhachHang + ", SoDienThoai="
-				+ SoDienThoai + ", Email=" + Email + ", GioiTinh=" + GioiTinh + ", ChungMinhNhanDan=" + ChungMinhNhanDan
-				+ "]";
+		return "KhachHang [maKH=" + maKH + ", hoTen=" + hoTen + ", SoDienThoai=" + SoDienThoai + ", email=" + email
+				+ ", gioiTinh=" + gioiTinh + ", cccd=" + cccd + "]";
 	}
-	
-	
-	
-	
-}
+	}
+
